@@ -4,6 +4,16 @@
   flex-direction: column;
 }
 
+.scroll {
+  max-width: 100%;
+  height: 100%;
+}
+
+.scrollBody {
+  display: flex;
+  flex-direction: column;
+}
+
 .button {
   margin-top: 50px;
   border-radius: 60px;
@@ -14,39 +24,6 @@
   border: none;
   outline: none;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
-  /*&::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background-color: #fff;
-    border-radius: inherit;
-    z-index: -1;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #000;
-    border-radius: inherit;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  &:hover::after {
-    opacity: 0.1;
-  }
-
-  &:active::after {
-    opacity: 0.2;
-  }*/
 }
 
 .page-container {
@@ -79,7 +56,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: clip;
 }
 .right-content::before {
   content: "";
@@ -91,19 +68,31 @@
 .right-image {
   position: absolute;
   top: 0;
-  left: 0;
-  max-width: 95%;
-  height: 95%;
-  object-fit: cover;
+  left: 5%;
+  right: 5%;
+  background-color: blueviolet;
+  width: 90%;
+  overflow: clip;
+  height: 90%;
   border-radius: 50%;
   border: 2px solid black;
-  box-shadow: 0px 14px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.34);
   transition: box-shadow 0.3s ease;
 }
 
 .right-image.disabled {
+  background-color: red;
   filter: grayscale(100%);
   box-shadow: 0px 14px 18px rgba(0, 0, 0, 0.1);
+}
+
+.canvas {
+  position: absolute;
+  left: -50%;
+  width: 200%; /* 设置 lottie 容器的宽度 */
+  height: 100%;
+  box-sizing: content-box;
+  object-fit: fill;
 }
 
 /*# sourceMappingURL=index.css.map */

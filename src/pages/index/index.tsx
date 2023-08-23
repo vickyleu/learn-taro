@@ -1,50 +1,90 @@
-import {Button, Image, Text, View} from '@tarojs/components'
-import {useLoad} from '@tarojs/taro'
+// @ts-ignore
+import {Button, Canvas, Image, ScrollView, Text, View} from '@tarojs/components'
+import Taro, {useLoad, useReady} from '@tarojs/taro'
 import './index.scss'
-// eslint-disable-next-line import/first
-import {useState} from 'react';
+import {useState} from 'react'
+import lottie from "lottie-miniprogram";
+
 
 export default function Index() {
-  const [text, setText] = useState('Hello world!');
-  const [isDisabled, setIsDisabled] = useState(false);
-  const handleClick = () => {
-    setIsDisabled(true);
-  };
-  const handleReleaseClick = () => {
-    setIsDisabled(false);
-  };
+    useReady(() => {
+        Taro.createSelectorQuery().select('#canvas').node((ref) => {
+            if (ref) {
+                const canvas = ((ref as unknown as unknown[]).length > 0) ? ref[0].node : ref.node;
+                if (canvas) {
+                    const context = canvas.getContext('2d');
+                    lottie.setup(canvas);
 
-  useLoad(() => {
-    console.log('Page loaded.')
-  })
+                    lottie.loadAnimation({
+                        animationData: require("assets/react.json"),
+                        // animationData: require("assets/react2.json"),
+                        loop: true,
+                        autoplay: true,
+                        rendererSettings: {
+                            context: context
+                            /* , preserveAspectRatio: 'xMidYMid slice'*/
+                        },
+                    });
+                }
+            }
+        }).exec();
+    })
 
+    useLoad(() => {
+        console.log('Page loaded.')
+    })
 
-  return (
-    <View className='index'>
-      <View className='page-container'>
-        <View className='left-content'>
-          {/* 左边的内容 */}
-          <Text className='left-content text'>{text}</Text>
+    const [text, setText] = useState('Hello world!');
+    // @ts-ignore
+    const [isDisabled, setIsDisabled] = useState(false);
+    const handleClick = () => {
+        setIsDisabled(true);
+    };
+    const handleReleaseClick = () => {
+        setIsDisabled(false);
+    };
+
+    // @ts-ignore
+    return (
+        <View className='index'>
+            <ScrollView className='scroll' bounces enhanced
+                        scroll-y upper-threshold='50'
+                        lower-threshold='50'
+            >
+
+                <View className='scrollBody'>
+                    <View className='page-container'>
+                        <View className='left-content'>
+                            {/*左边的内容*/}
+                            <Text className='left-content text'>{text}</Text>
+                        </View>
+                        <View className='right-content'>
+                            {/*右边的内容*/}
+                            <View className={`right-image ${isDisabled ? 'disabled' : ''}`}>
+                                <Canvas id='canvas' className='canvas'
+                                        type='2d' onTouchStart={handleClick} onTouchEnd={handleReleaseClick}
+                                        onClick={() => {
+                                        }}
+                                />
+                            </View>
+
+                        </View>
+                    </View>
+
+                    <Button className='button' onTouchStart={handleClick} onTouchEnd={handleReleaseClick}
+                            onClick={() => {
+                                if (text === 'Hello world!') {
+                                    setText('你好，Taro with React！');
+                                } else {
+                                    setText('Hello world!');
+                                }
+                            }
+                            }
+                    >屠龙宝刀点击就送</Button>
+                </View>
+
+            </ScrollView>
+
         </View>
-        <View className='right-content'>
-          {/* 右边的内容 */}
-          <Image
-            className={`right-image ${isDisabled ? 'disabled' : ''}`}  onTouchStart={handleClick} onTouchEnd={handleReleaseClick}   onClick={()=>{
-
-          }} src={require('assets/google.png')}
-          />
-        </View>
-      </View>
-
-      <Button className='button' onTouchStart={handleClick} onTouchEnd={handleReleaseClick}  onClick={() => {
-        if (text === 'Hello world!') {
-          setText('你好，Taro with React！');
-        } else {
-          setText('Hello world!');
-        }
-      }
-      }
-      >屠龙宝刀点击就送</Button>
-    </View>
-  )
+    )
 }
