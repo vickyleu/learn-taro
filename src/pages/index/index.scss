@@ -1,0 +1,113 @@
+.index {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  margin-top: 50px;
+  border-radius: 60px;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+
+  /*&::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background-color: #fff;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  &:hover::after {
+    opacity: 0.1;
+  }
+
+  &:active::after {
+    opacity: 0.2;
+  }*/
+
+}
+
+
+.page-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-content {
+  flex: 1;
+  /* 左边内容样式 */
+  display: flex;
+  justify-content: left; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  overflow: hidden; // 防止文字溢出
+}
+
+.left-content.text {
+  max-lines: 2;
+  max-width: 90%;
+  white-space: pre-wrap;
+  //white-space: nowrap;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+.right-content {
+  flex: 1;
+  //background-color: blueviolet;
+  /* 右边内容样式 */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; // 防止图像溢出
+  //伪元素
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 100%; // 使高度等于宽度，从而形成一个完整的圆形
+  }
+}
+
+.right-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 95%;
+  //width: 100%;
+  height: 95%; // 这确保了图像将填满其父容器
+  object-fit: cover; // 确保图片按照纵横比来填充
+  border-radius: 50%; // 使其成为圆形
+  border: 2px solid black; // 黑色边框
+  box-shadow: 0px 14px 18px rgba(0, 0, 0, 0.1); // 阴影效果
+  transition: box-shadow 0.3s ease; // 过渡效果
+}
+
+.right-image.disabled {
+  filter: grayscale(100%);
+  box-shadow: 0px 14px 18px rgba(0, 0, 0, 0.1); // Adjusted shadow for "pressed" effect
+}
