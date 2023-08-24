@@ -26,5 +26,9 @@
     }
   },
   "include": ["./src", "./types", "./config"],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "compileOnSave": false
 }

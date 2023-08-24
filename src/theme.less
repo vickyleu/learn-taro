@@ -1,0 +1,35 @@
+/* stylelint-disable selector-type-no-unknown, selector-max-type */
+@import '@antmjs/vantui/lib/index.less';
+// @import './iconfont.less';
+page,
+.taro_page {
+  background-color: @pageBack !important;
+  font-size: 28px;
+}
+
+view,
+div {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body,
+html {
+  // NOTE: taro h5 ios上拉遮挡底部fixed元素
+  overflow: hidden !important;
+}
+
+// 可以用的类
+// .van-hairline,
+// .van-hairline--top,
+// .van-hairline--left,
+// .van-hairline--right,
+// .van-hairline--bottom,
+// .van-hairline--top-bottom,
+// .van-hairline--surround
+// .van-ellipsis
+// .van-multi-ellipsis--l2
+// .van-multi-ellipsis--l3

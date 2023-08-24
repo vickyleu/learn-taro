@@ -2,7 +2,9 @@
   "extends": ["taro/react"],
   "rules": {
     "import/first": "off",
-    "no-unused-vars": 0,
+    "jsx-quotes": "off",
+    "no-unused-vars": 0,//["error", { "varsIgnorePattern": "Taro" }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
     "@typescript-eslint/no-unused-vars": 0,
     "no-console": "off",
     "react/prop-types": [

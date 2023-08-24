@@ -13,17 +13,29 @@ export default function Index() {
                 const canvas = ((ref as unknown as unknown[]).length > 0) ? ref[0].node : ref.node;
                 if (canvas) {
                     const context = canvas.getContext('2d');
-                    lottie.setup(canvas);
+                    Taro.getSystemInfo({
+                        success: (res2) => {
+                            console.log(`Taro.getSystemInfo==>>${JSON.stringify(res2)}`)
+                            let {pixelRatio,screenWidth,screenHeight} = res2;
+                            // 关键代码  start ！！！
+                            context.scale(pixelRatio, pixelRatio)
+                            canvas.width = (screenWidth*0.6) * pixelRatio
+                            canvas.height = ((screenWidth*0.6)*1.04) * pixelRatio
+                            // 关键代码  end ！！！
+                            lottie.setup(canvas);
 
-                    lottie.loadAnimation({
-                        animationData: require("assets/react.json"),
-                        // animationData: require("assets/react2.json"),
-                        loop: true,
-                        autoplay: true,
-                        rendererSettings: {
-                            context: context
-                            /* , preserveAspectRatio: 'xMidYMid slice'*/
-                        },
+                            const anim = lottie.loadAnimation({
+                                animationData: require("assets/react.json"),
+                                // animationData: require("assets/react2.json"),
+                                loop: true,
+                                autoplay: true,
+                                rendererSettings: {
+                                    context: context
+                                    /* , preserveAspectRatio: 'xMidYMid slice'*/
+                                },
+                            });
+                            anim.getDuration()
+                        }
                     });
                 }
             }
@@ -47,19 +59,23 @@ export default function Index() {
     // @ts-ignore
     return (
         <View className='index'>
-            <ScrollView className='scroll' bounces enhanced
-                        scroll-y upper-threshold='50'
-                        lower-threshold='50'
+            <View className="navbar">
+            </View>
+            <ScrollView className='scroll'
+                        scrollY
+                        scrollWithAnimation
+                        bounces enhanced
+                        upper-threshold='10'
+                        lower-threshold='10'
+                        showScrollbar
             >
 
                 <View className='scrollBody'>
                     <View className='page-container'>
                         <View className='left-content'>
-                            {/*左边的内容*/}
                             <Text className='left-content text'>{text}</Text>
                         </View>
                         <View className='right-content'>
-                            {/*右边的内容*/}
                             <View className={`right-image ${isDisabled ? 'disabled' : ''}`}>
                                 <Canvas id='canvas' className='canvas'
                                         type='2d' onTouchStart={handleClick} onTouchEnd={handleReleaseClick}
@@ -84,7 +100,6 @@ export default function Index() {
                 </View>
 
             </ScrollView>
-
         </View>
     )
 }
