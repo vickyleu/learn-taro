@@ -1,0 +1,23 @@
+@import '../../base.scss';
+
+.index{
+  background-color: #d43c33;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  .navbar {
+    height: env(safe-area-inset-top);
+    background-color: transparent;
+  }
+}
+.index.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.index.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s;
+}

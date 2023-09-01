@@ -1,11 +1,32 @@
 {
-  "extends": ["taro/react"],
+  "extends": [
+    "taro/react"
+  ],
+  "globals": {
+    "wx": true
+  },
   "rules": {
     "import/first": "off",
     "jsx-quotes": "off",
-    "no-unused-vars": 0,//["error", { "varsIgnorePattern": "Taro" }],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
-    "@typescript-eslint/no-unused-vars": 0,
+    "no-useless-escape": "off",
+    "no-empty": "off",
+    "import/no-named-as-default-member": "off",
+    "no-unused-expressions": "off",
+    //["error", { "varsIgnorePattern": "Taro" }],
+    "no-unused-vars": "off",
+    //["error", { "varsIgnorePattern": "Taro" }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".tsx"
+        ]
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
     "no-console": "off",
     "react/prop-types": [
       "warn"

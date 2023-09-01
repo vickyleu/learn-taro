@@ -1,34 +1,50 @@
 @import '../../base.scss';
+
 .index {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  .navbar {
-    height: env(safe-area-inset-top);
-    background-color: transparent;
-  }
+  //.navbar {
+  //  height: env(safe-area-inset-top);
+  //  background-color: transparent;
+  //}
+}
+.index.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.index.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 .scroll {
   flex-grow: 1; /* 使用flex-grow属性让ScrollView占据剩余空间 */
   height: 100vh;
+  ::-webkit-scrollbar {
+    display:none;
+    width:0;
+    height:0;
+    color:transparent;
+  }
 }
 .scrollBody {
   display: flex;
-  height: 105vh;
+  min-height: 1801vh;
   background-color: gray;
   flex-direction: column;
 }
 
 .button {
-  margin-top: 50px;
-  border-radius: 60px;
+  margin-top: 50rpx;
+  border-radius: 60rpx;
   overflow: hidden;
   position: relative;
-  padding: 10px;
+  padding: 10rpx;
   background-color: white;
   border: none;
   outline: none;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0rpx 0rpx 0rpx 1rpx rgba(0, 0, 0, 0.25);
 }
 
 
@@ -84,15 +100,15 @@
   overflow: clip;
   height: 90%; // 这确保了图像将填满其父容器
   border-radius: 50%; // 使其成为圆形
-  border: 2px solid black; // 黑色边框
-  box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.34); // 阴影效果
+  border: 2rpx solid black; // 黑色边框
+  box-shadow: 0rpx 14rpx 28rpx rgba(0, 0, 0, 0.34); // 阴影效果
   transition: box-shadow 0.3s ease; // 过渡效果
 }
 
 .right-image.disabled {
   background-color: red;
   filter: grayscale(100%);
-  box-shadow: 0px 14px 18px rgba(0, 0, 0, 0.1); // Adjusted shadow for "pressed" effect
+  box-shadow: 0rpx 14rpx 18rpx rgba(0, 0, 0, 0.1); // Adjusted shadow for "pressed" effect
 }
 
 .canvas {
