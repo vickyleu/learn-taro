@@ -1,17 +1,19 @@
 @import '../../base.scss';
 
-.index{
-  background-color: #d43c33;
+.index {
+  background-color: white;
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   min-height: 100%;
+
   .navbar {
     height: env(safe-area-inset-top);
     background-color: transparent;
   }
 }
+
 .index.fade-in {
   opacity: 1;
   transition: opacity 0.5s;
@@ -19,5 +21,123 @@
 
 .index.fade-out {
   opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.image-icon {
+  width: 25%;
+  aspect-ratio: 1;
+  margin-top: 5%;
+  align-self: center;
+  align-content: center;
+  overflow: clip;
+  display: flex;
+
+  .icon {
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    align-content: center;
+    overflow: clip;
+    box-sizing: content-box;
+    object-fit: fill; // 确保图片按照纵横比来填充
+    background-image: url('../../../assets/launcher.png');
+    background-size: 130% 130%; /* 调整这些值以达到所需的效果 */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+
+.icon-text {
+  align-self: center;
+  font-size: 60rpx;
+  display: flex;
+  color: #1E1E1E;
+  overflow: clip;
+  margin-top: 60rpx;
+  line-height: 1;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: 30rpx;
+  width: 40%;
+}
+
+.line-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; // 根据需要调整
+  position: relative; // 给 text-line 使用
+}
+
+.text-line {
+  position: absolute;
+  top: 50%; // 垂直居中
+  transform: translateY(-50%);
+  height: 1.0rpx;
+  width: 100%; // 根据需要调整
+  background-color: #727272;
+}
+
+.line-text {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  color: #727272;
+  background-color: white;
+  font-size: 30rpx;
+  z-index: 1; // 使得 text 在 line 的上面
+}
+
+.local-login {
+  background: linear-gradient(to right, #2084F8, #7DA2FA);
+  border-radius: 50rpx;
+  box-sizing: border-box; /* 使用 border-box 可以确保 padding 和 border 被包含在元素的总宽度和高度内 */
+  padding: 30rpx 100rpx !important; /* 简化内边距设置 */
+  line-height: 1; // 根据需要调整
+  color: #FFFFFF;
+  minHeight: 0;
+  minWidth: 0;
+  font-size: 40rpx;
+  margin-top: 30rpx;
+  overflow: clip;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.local-login.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.local-login.fade-out {
+  opacity: 0.4;
+  transition: opacity 0.5s;
+}
+
+.other-login {
+  font-size: 40rpx;
+  display: flex;
+  line-height: 1; // 根据需要调整
+  margin-top: 20rpx;
+  overflow: clip;
+  color: #7889AC;
+  align-self: center;
+}
+
+.other-login.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.other-login.fade-out {
+  opacity: 0.4;
   transition: opacity 0.5s;
 }

@@ -10,6 +10,8 @@
     "jsx-quotes": "off",
     "no-useless-escape": "off",
     "no-empty": "off",
+    "react/jsx-tag-spacing": "off",
+    "react/jsx-closing-bracket-location": "off",
     "import/no-named-as-default-member": "off",
     "no-unused-expressions": "off",
     //["error", { "varsIgnorePattern": "Taro" }],
