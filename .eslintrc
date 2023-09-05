@@ -8,6 +8,7 @@
   "rules": {
     "import/first": "off",
     "jsx-quotes": "off",
+    "no-useless-constructor": "off",
     "no-useless-escape": "off",
     "no-empty": "off",
     "react/jsx-tag-spacing": "off",
@@ -15,6 +16,7 @@
     "import/no-named-as-default-member": "off",
     "no-unused-expressions": "off",
     //["error", { "varsIgnorePattern": "Taro" }],
+    "react-hooks/rules-of-hooks": "off",
     "no-unused-vars": "off",
     //["error", { "varsIgnorePattern": "Taro" }],
     "react/jsx-filename-extension": [

@@ -25,7 +25,7 @@ export default function Index() {
             let info = pair[1];
             mCanvas = canvas;
             const context = canvas.getContext('2d');
-            console.log(`Taro.getSystemInfo==>>${JSON.stringify(info)}`)
+            // console.log(`Taro.getSystemInfo==>>${JSON.stringify(info)}`)
             // @ts-ignore
             let {pixelRatio, screenWidth, screenHeight} = info;
             // 关键代码  start ！！！
@@ -52,7 +52,6 @@ export default function Index() {
     })
 
     useLoad(() => {
-        console.log('Page loaded.')
     })
 
     const [text, setText] = useState('Hello world!');

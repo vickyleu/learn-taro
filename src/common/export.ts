@@ -110,7 +110,7 @@ export function canvasNode(canvasTag: string): Promise<CanvasNode> {
             if (ref) {
                 const canvas = ((ref as unknown as unknown[]).length > 0) ? ref[0].node : ref.node;
                 if (canvas) {
-                    console.log(`typeof canvas==>${Object.getPrototypeOf(canvas)}`)
+                    // console.log(`typeof canvas==>${Object.getPrototypeOf(canvas)}`)
                     resolve(canvas);
                 } else {
                     reject(ref);
